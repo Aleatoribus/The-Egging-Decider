@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Egging Decider</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="referrer" content="no-referrer">
+		<meta http-equiv="x-dns-prefetch-control" content="off">
+	</head>
+
+	<body>
+		<h1>The Egging Decider</h1>
+
+		<p>A simple calculator to decide whether or not we will egg our professor's house. <a href="faq.html">FAQ</a></p>
+
+		<p>
+			Aaron:
+			<select id="aaron">
+				<option value="" selected></option>
+				<option value="pass">Pass</option>
+				<option value="fail">Fail</option>
+			</select>
+		</p>
+
+		<p>
+			Phu:
+			<select id="phu">
+				<option value="" selected></option>
+				<option value="pass">Pass</option>
+				<option value="fail">Fail</option>
+			</select>
+		</p>
+
+		<p>
+			Sam:
+			<select id="sam">
+				<option value="" selected></option>
+				<option value="pass">Pass</option>
+				<option value="fail">Fail</option>
+			</select>
+		</p>
+
+		<p>
+			Vanja:
+			<select id="vanja">
+				<option value="" selected></option>
+				<option value="pass">Pass</option>
+				<option value="fail">Fail</option>
+			</select>
+		</p>
+
+		<p>
+			<button type="button" onclick="decide()">Calculate</button>
+		</p>
+
+		<p>
+			<strong id="result">
+				Enter results
+			</strong>
+		</p>
+
+		<script>
+			function decide(){
+				var aaron = document.getElementById("aaron");
+				var aaronValue = aaron.options[aaron.selectedIndex].value;
+
+				var phu = document.getElementById("phu");
+				var phuValue = phu.options[phu.selectedIndex].value;
+
+				var sam = document.getElementById("sam");
+				var samValue = sam.options[sam.selectedIndex].value;
+
+				var vanja = document.getElementById("vanja");
+				var vanjaValue = vanja.options[vanja.selectedIndex].value;
+
+				if(aaronValue == "pass" && phuValue == "pass" && samValue == "pass" && vanjaValue == "pass"){
+					document.getElementById("result").innerHTML = "We <i style='color: green'>will not</i> egg our professor's house!";
+				}
+				else if(aaronValue == "" || phuValue == "" || samValue == "" || vanjaValue == ""){
+					document.getElementById("result").innerHTML = "Incomplete data. We're a team, enter everyone!";
+				}
+				else{
+					document.getElementById("result").innerHTML = "We <i style='color: red'>will</i> egg our professor's house!";
+				}
+			}
+		</script>
+	</body>
+</html>
